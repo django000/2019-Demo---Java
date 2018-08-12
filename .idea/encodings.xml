@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/com/vitoz/bxd/day01/Demo.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/vitoz/bxd/day02/IfDemo.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/vitoz/bxd/day05/人开门.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/vitoz/bxd/day08/继承.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/vitoz/bxd/day09/ExceptionDemo4.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/vitoz/bxd/day10/ExceptionDemo5.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/vitoz/bxd/day10/ExceptionDemo6.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/vitoz/bxd/day10/异常.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/vitoz/bxd/day11/ThreadTest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/vitoz/bxd/day12/同步.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/vitoz/bxd/day15/GenericDemo6.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/vitoz/bxd/day18/FileReaderDemo.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/vitoz/bxd/day19/装饰和继承.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/vitoz/bxd/day24/网络架构.java" charset="GBK" />
+  </component>
+</project>
