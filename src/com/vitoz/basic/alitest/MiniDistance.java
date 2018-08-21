@@ -1,4 +1,4 @@
-package com.vitoz.bxd;
+package com.vitoz.basic.alitest;
 
 import java.util.Scanner;
 
@@ -15,7 +15,7 @@ class Point{
     }
 }
 
-public class AliCode {
+public class MiniDistance {
     public static final Point START=new Point(0,0);
     public static int minPath=Integer.MAX_VALUE;
 

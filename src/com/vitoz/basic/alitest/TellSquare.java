@@ -1,9 +1,9 @@
-package com.vitoz.bxd.test02;
+package com.vitoz.basic.alitest;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Main {
+public class TellSquare {
     private static int[][] p = new int[4][2];
     private static int[][] q = new int[4][2];
     public static void main(String[] args) {

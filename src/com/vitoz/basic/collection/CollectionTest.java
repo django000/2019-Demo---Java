@@ -1,9 +1,4 @@
-package com.vitoz.bxd.collection;
-
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.TreeSet;
+package com.vitoz.basic.collection;
 
 public class CollectionTest {
     public static void main(String[] args) throws InterruptedException{
@@ -11,7 +6,7 @@ public class CollectionTest {
         ProducerHeap producerHeap = new ProducerHeap(linked);
         ConsumerHeap consumerHeap = new ConsumerHeap(linked);
 
-//        new Thread(producerHeap).start();
+        new Thread(producerHeap).start();
 //        new Thread(producerHeap).start();
 //        new Thread(producerHeap).start();
         new Thread(consumerHeap).start();

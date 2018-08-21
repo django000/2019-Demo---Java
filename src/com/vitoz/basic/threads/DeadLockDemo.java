@@ -1,10 +1,10 @@
-package com.vitoz.bxd;
+package com.vitoz.basic.threads;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class DeadLock {
+public class DeadLockDemo {
     public static void main(String[] args) {
         DeadLockBody deadLockBodyA = new DeadLockBody(true);
         DeadLockBody deadLockBodyB = new DeadLockBody(false);

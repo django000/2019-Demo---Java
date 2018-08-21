@@ -1,4 +1,4 @@
-package com.vitoz.bxd.collection;
+package com.vitoz.basic.collection;
 
 public class Person implements Comparable{
     private String name;

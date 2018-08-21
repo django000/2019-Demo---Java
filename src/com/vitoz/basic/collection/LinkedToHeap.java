@@ -1,4 +1,4 @@
-package com.vitoz.bxd.collection;
+package com.vitoz.basic.collection;
 
 import java.util.*;
 

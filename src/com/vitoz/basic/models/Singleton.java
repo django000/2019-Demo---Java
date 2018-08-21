@@ -1,4 +1,4 @@
-package com.vitoz.bxd;
+package com.vitoz.basic.models;
 
 public class Singleton {
     public static void main(String[] args) {
@@ -27,7 +27,7 @@ class SingletonA{
 
 class SingletonB{
     private SingletonB(){}
-    private static SingletonB singletonB = null;
+    private static volatile SingletonB singletonB = null;
     static SingletonB getTon(){
         if (singletonB == null){
             synchronized (Singleton.class){

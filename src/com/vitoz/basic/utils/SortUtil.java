@@ -1,4 +1,4 @@
-package com.vitoz.bxd;
+package com.vitoz.basic.utils;
 
 public class SortUtil {
     public static void main(String[] args) {
