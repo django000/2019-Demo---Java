@@ -1,6 +1,5 @@
-package com.vitoz.basic.threads;
+package com.vitoz.basic.thread;
 
-import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 

@@ -1,4 +1,4 @@
-package com.vitoz.basic.threads;
+package com.vitoz.basic.thread;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
@@ -10,8 +10,6 @@ public class DeadLockDemo {
         DeadLockBody deadLockBodyB = new DeadLockBody(false);
         new Thread(deadLockBodyA).start();
         new Thread(deadLockBodyB).start();
-        Lock lock = new ReentrantLock();
-        Condition condition = lock.newCondition();
 
     }
 }

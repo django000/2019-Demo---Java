@@ -1,4 +1,4 @@
-package com.vitoz.basic.threads;
+package com.vitoz.basic.thread;
 
 import java.util.concurrent.Exchanger;
 import java.util.concurrent.ExecutorService;

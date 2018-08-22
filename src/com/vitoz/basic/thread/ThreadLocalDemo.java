@@ -1,4 +1,4 @@
-package com.vitoz.basic.threads;
+package com.vitoz.basic.thread;
 
 /**
  * Created by zhengwentao on 2018/8/21.

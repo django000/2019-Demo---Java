@@ -1,6 +1,5 @@
-package com.vitoz.basic.threads;
+package com.vitoz.basic.thread;
 
-import java.util.LinkedList;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class GoodsWithLBQ implements GoodsWith {
