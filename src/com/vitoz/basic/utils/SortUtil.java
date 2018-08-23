@@ -8,6 +8,7 @@ public class SortUtil {
 //        selectSort1(arr);
 //        selectSort2(arr);
 //        bubbleSort(arr);
+//        bubbleSort2(arr);
 //        insertSort(arr);
 //        quickSort(arr);
 //        mergeSort(arr);
@@ -109,6 +110,16 @@ public class SortUtil {
         }
     }
     public static void bubbleSort(int[] arr){
+        int len = arr.length;
+        for (int i=0; i< len-1; i++){
+            for (int j=0; j<len-i-1; j++){
+                if (arr[j]>arr[j+1]){
+                    swapItem(j, j+1, arr);
+                }
+            }
+        }
+    }
+    public static void bubbleSort2(int[] arr){
         int len = arr.length;
         int pos;
         for (int i=0; i< len-1; i++){
