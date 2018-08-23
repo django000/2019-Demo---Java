@@ -2,46 +2,51 @@ package com.vitoz.basic.collection;
 
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Random;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class LinkedToBlockingHeap<E> {
-    private int length = 10;
+    private int length;
     private LinkedList<E> linked = new LinkedList<E>();
 
-    private final ReentrantLock putLock = new ReentrantLock();
-    private final Condition notFull = putLock.newCondition();
-    private final ReentrantLock takeLock = new ReentrantLock();
-    private final Condition notEmpty = takeLock.newCondition();
+    private final ReentrantLock lock = new ReentrantLock();
+    private final Condition notFull = lock.newCondition();
+    private final Condition notEmpty = lock.newCondition();
 
-    LinkedToBlockingHeap(){}
+    LinkedToBlockingHeap(){
+        this(8);
+    }
     LinkedToBlockingHeap(int length){
         this.length = length;
     }
 
-    public void addElement(E e) throws InterruptedException{
-        putLock.lock();
+    public void addElement() throws InterruptedException{
+        lock.lock();
         try {
             while (isFull()){
+                System.out.println("该阻塞队列已满，内容为: "+linked);
                 notFull.await();
             }
-            linked.offerLast(e);
+            String item = "input"+new Random().nextInt(100);
+            linked.addLast((E)item);
+            System.out.println(Thread.currentThread().getName()+" 添加元素 "+item);
             notEmpty.signal();
         }finally {
-            putLock.unlock();
+            lock.unlock();
         }
     }
-    public E removeElement() throws InterruptedException{
-        takeLock.lock();
+    public void removeElement() throws InterruptedException{
+        lock.lock();
         try {
             while (isEmpty()){
-                System.out.println("empty");
+                System.out.println("堆栈为空");
                 notEmpty.await();
             }
             notFull.signal();
+            System.out.println(Thread.currentThread().getName()+" 删除元素 "+linked.pollLast());
         }finally {
-            takeLock.unlock();
-            return linked.pollLast();
+            lock.unlock();
         }
     }
 

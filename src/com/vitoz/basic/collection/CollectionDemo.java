@@ -1,18 +1,18 @@
 package com.vitoz.basic.collection;
 
 
-public class CollectionTest {
+public class CollectionDemo {
     public static void main(String[] args) throws InterruptedException{
-        LinkedToBlockingHeap<String> linked = new LinkedToBlockingHeap<>(2);
+        LinkedToBlockingHeap<String> linked = new LinkedToBlockingHeap<>();
         ProducerHeap producerHeap = new ProducerHeap(linked);
         ConsumerHeap consumerHeap = new ConsumerHeap(linked);
 
-//        new Thread(producerHeap).start();
-//        new Thread(producerHeap).start();
-//        new Thread(producerHeap).start();
-//        new Thread(consumerHeap).start();
-//        new Thread(consumerHeap).start();
-//        new Thread(consumerHeap).start();
+        new Thread(producerHeap).start();
+        new Thread(producerHeap).start();
+        new Thread(producerHeap).start();
+        new Thread(consumerHeap).start();
+        new Thread(consumerHeap).start();
+        new Thread(consumerHeap).start();
 
     }
 
@@ -24,11 +24,14 @@ class ProducerHeap implements Runnable{
     }
     @Override
     public void run(){
-        try {
-            linked.addElement("input");
-        }catch (Exception e){
+        while (true){
+            try {
+                linked.addElement();
+            }catch (Exception e){
 
+            }
         }
+
     }
 }
 
@@ -39,10 +42,13 @@ class ConsumerHeap implements Runnable{
     }
     @Override
     public void run(){
-        try {
-            System.out.println(linked.removeElement());
-        }catch (Exception e){
+        while (true){
+            try {
+                linked.removeElement();
+            }catch (Exception e){
 
+            }
         }
+
     }
 }

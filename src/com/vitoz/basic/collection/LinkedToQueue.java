@@ -3,7 +3,7 @@ package com.vitoz.basic.collection;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-public class LinkedToQueue<E> {
+public class  LinkedToQueue<E> {
     private LinkedList<E> linked = new LinkedList<E>();
 
     public Boolean addElement(E e){
