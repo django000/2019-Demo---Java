@@ -1,4 +1,4 @@
-package com.vitoz.basic.alitest;
+package com.vitoz.campus.alitest;
 
 import java.util.Scanner;
 

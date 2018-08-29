@@ -1,4 +1,4 @@
-package com.vitoz.basic.qihutest;
+package com.vitoz.campus.qihutest;
 
 import java.util.HashSet;
 import java.util.Scanner;

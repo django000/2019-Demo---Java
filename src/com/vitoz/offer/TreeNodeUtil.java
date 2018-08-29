@@ -33,13 +33,18 @@ class BinaryTreeNode{
     int value;
     BinaryTreeNode leftNode = null;
     BinaryTreeNode rightNode = null;
+    BinaryTreeNode parentNode = null;
     public BinaryTreeNode(int value){
-        this.value = value;
+        this(value, null, null, null);
     }
 
     public BinaryTreeNode(int value, BinaryTreeNode leftNode, BinaryTreeNode rightNode){
+        this(value, leftNode, rightNode, null);
+    }
+    public BinaryTreeNode(int value, BinaryTreeNode leftNode, BinaryTreeNode rightNode, BinaryTreeNode parentNode){
         this.value = value;
         this.leftNode = leftNode;
         this.rightNode = rightNode;
+        this.parentNode = parentNode;
     }
 }

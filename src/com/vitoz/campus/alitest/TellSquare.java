@@ -1,4 +1,4 @@
-package com.vitoz.basic.alitest;
+package com.vitoz.campus.alitest;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -35,9 +35,6 @@ public class TellSquare {
         //数组排序 最长的是对角线
         Arrays.sort(len);
         //相邻两边相等,对角线相等的四边形是正方形;
-        if(len[0]==len[1]&&len[4]==len[5]&&len[4]>len[1]){
-            return true;
-        }
-        return false;
+        return len[0]==len[1]&&len[4]==len[5]&&len[4]>len[1];
     }
 }

@@ -1,4 +1,4 @@
-package com.vitoz.basic.perfecttest;
+package com.vitoz.campus.perfecttest;
 
 import java.util.Scanner;
 /*
