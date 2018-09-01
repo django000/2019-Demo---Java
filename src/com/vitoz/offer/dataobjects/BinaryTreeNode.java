@@ -1,0 +1,137 @@
+package com.vitoz.offer.dataobjects;
+
+import java.util.Stack;
+import java.util.concurrent.LinkedBlockingQueue;
+
+/**
+ * @Auther: vitoz
+ * @Date: 2018/9/1 20:58
+ * @Description: 剑指offer面试题
+ */
+public class BinaryTreeNode{
+    public int value;
+    public BinaryTreeNode leftNode = null;
+    public BinaryTreeNode rightNode = null;
+    public BinaryTreeNode parentNode = null;
+    public BinaryTreeNode(int value){
+        this(value, null, null, null);
+    }
+
+    public BinaryTreeNode(int value, BinaryTreeNode leftNode, BinaryTreeNode rightNode){
+        this(value, leftNode, rightNode, null);
+    }
+    public BinaryTreeNode(int value, BinaryTreeNode leftNode, BinaryTreeNode rightNode, BinaryTreeNode parentNode){
+        this.value = value;
+        this.leftNode = leftNode;
+        this.rightNode = rightNode;
+        this.parentNode = parentNode;
+    }
+
+    public void printPreorder(){
+        System.out.print(value+" ");
+        if (leftNode != null){
+            leftNode.printPreorder();
+        }
+        if (rightNode != null){
+            rightNode.printPreorder();
+        }
+    }
+    public void printInorder(){
+        if (leftNode != null){
+            leftNode.printInorder();
+        }
+        System.out.print(value+" ");
+        if (rightNode != null){
+            rightNode.printInorder();
+        }
+    }
+    public void printPostorder(){
+        if (leftNode != null){
+            leftNode.printPostorder();
+        }
+        if (rightNode != null){
+            rightNode.printPostorder();
+        }
+        System.out.println(value+" ");
+    }
+
+    // 从上到下打印二叉树，各层分开
+    public static void printVerorder(BinaryTreeNode root){
+        if (root == null){
+            return;
+        }
+        LinkedBlockingQueue<BinaryTreeNode> queue = new LinkedBlockingQueue<> ();
+        queue.offer(root);
+        int toBePrinted = 1;
+        int nextLevel = 0;
+        BinaryTreeNode tmpNode;
+        while (!queue.isEmpty()){
+            tmpNode = queue.poll();
+            System.out.print(tmpNode.value+" ");
+            toBePrinted--;
+            if (tmpNode.leftNode != null){
+                queue.offer(tmpNode.leftNode);
+                nextLevel++;
+            }
+            if (tmpNode.rightNode != null){
+                queue.offer(tmpNode.rightNode);
+                nextLevel++;
+            }
+            if (toBePrinted == 0){
+                System.out.println();
+                toBePrinted = nextLevel;
+                nextLevel = 0;
+            }
+        }
+    }
+
+    // 从上到下之字形打印二叉树，各层分开
+    public static void printVerorderZ(BinaryTreeNode root){
+        if (root == null){
+            return;
+        }
+        Stack[] stacks = {new Stack<BinaryTreeNode>(), new Stack<BinaryTreeNode>()};
+        int flag = 0;
+        BinaryTreeNode tmpNode;
+        stacks[flag].push(root);
+        while (!stacks[0].isEmpty() || !stacks[1].isEmpty()){
+            tmpNode = (BinaryTreeNode) stacks[flag].pop();
+            System.out.print(tmpNode.value+" ");
+            if (flag == 0){
+                if (tmpNode.leftNode != null){
+                    stacks[flag^1].push(tmpNode.leftNode);
+                }
+                if (tmpNode.rightNode != null){
+                    stacks[flag^1].push(tmpNode.rightNode);
+                }
+            }else {
+                if (tmpNode.rightNode != null){
+                    stacks[flag^1].push(tmpNode.rightNode);
+                }
+                if (tmpNode.leftNode != null){
+                    stacks[flag^1].push(tmpNode.leftNode);
+                }
+            }
+
+            if (stacks[flag].isEmpty()){
+                System.out.println();
+                flag ^= 1;
+            }
+        }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder()
+                .append("{value=")
+                .append(this.value)
+                .append(", parent=")
+                .append(parentNode!=null?parentNode.value:"null")
+                .append(", left=")
+                .append(leftNode!=null?leftNode.value:"null")
+                .append(", right=")
+                .append(rightNode!=null?rightNode.value:"null")
+                .append("}");
+        return builder.toString();
+    }
+}
