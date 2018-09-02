@@ -41,7 +41,6 @@ public class Demo1 {
         int totalTime = scanner.nextInt();
 
         System.out.print(getMaxScore(totalTime, 0));
-        System.out.println(0);
     }
 
     private static int getMaxScore(int totalTime, int index){
