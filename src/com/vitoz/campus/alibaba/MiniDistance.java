@@ -1,4 +1,4 @@
-package com.vitoz.campus.alitest;
+package com.vitoz.campus.alibaba;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package com.vitoz.campus.qihutest;
+package com.vitoz.campus.qihu;
 
 import java.util.Scanner;
 

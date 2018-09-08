@@ -6,10 +6,11 @@ package com.vitoz.offer.chapter5;
  * @Description: 剑指offer面试题42——求连续子序列的最大值
  */
 public class Demo42 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         int[] arr = {1,-2,3,10,-4,7,2,-5};
         System.out.println(getMaxSumOfSubArr(arr));
         System.out.println(getMaxSumOfSubArrDP(arr));
+        System.out.println(getMaxSumOfSubArrDP2(arr));
     }
 
     /**
@@ -68,6 +69,28 @@ public class Demo42 {
             }
         }
         System.out.println("the max sum of the sub-array is " + maxSum + " from index("+begin+") to ("+pos+")");
+        return maxSum;
+    }
+
+    private static int getMaxSumOfSubArrDP2(int[] arr)throws Exception{
+        if (arr == null || arr.length == 0){
+            throw new Exception("Empty Array Exception");
+        }
+        int len = arr.length;
+        int[] subArr = new int[len];
+        for (int i=0;i<len;i++){
+            if (i == 0){
+                subArr[0] = arr[0];
+            }else {
+                subArr[i] = subArr[i-1]>0?subArr[i-1]+arr[i]:arr[i];
+            }
+        }
+        int maxSum = subArr[0];
+        for (int i=1;i<len;i++){
+            if (subArr[i] > maxSum){
+                maxSum = subArr[i];
+            }
+        }
         return maxSum;
     }
 }

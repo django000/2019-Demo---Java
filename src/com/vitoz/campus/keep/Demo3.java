@@ -1,4 +1,4 @@
-package com.vitoz.campus.keeptest;
+package com.vitoz.campus.keep;
 
 public class Demo3 {
     public static void main(String[] args) {

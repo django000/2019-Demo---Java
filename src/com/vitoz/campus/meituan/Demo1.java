@@ -1,6 +1,4 @@
-package com.vitoz.campus.meituantest;
-
-import java.util.Scanner;
+package com.vitoz.campus.meituan;
 
 public class Demo1 {
     public static void main(String[] args) {

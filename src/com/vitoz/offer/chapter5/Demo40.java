@@ -33,7 +33,6 @@ public class Demo40 {
         if (k < 1 || k > len){
             return null;
         }
-        System.out.println(len);
         TreeSet<Integer> set = new TreeSet<>();
         for (int i=0;i<k;i++){
             set.add(arr[i]);

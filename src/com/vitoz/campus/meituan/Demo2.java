@@ -1,4 +1,4 @@
-package com.vitoz.campus.meituantest;
+package com.vitoz.campus.meituan;
 
 import java.util.HashMap;
 import java.util.Scanner;

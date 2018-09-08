@@ -1,4 +1,4 @@
-package com.vitoz.campus.zhtest;
+package com.vitoz.campus.zhaoxin;
 
 import java.util.ArrayList;
 import java.util.List;
