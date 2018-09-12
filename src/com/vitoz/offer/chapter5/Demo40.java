@@ -24,7 +24,14 @@ public class Demo40 {
         }
     }
 
-    // 采用TreeSet来保存最小的k个数，因为TreeSet增删改查的复杂度均为lgk，因此总的时间复杂度为O(lgk)
+    /**
+     *@描述  采用TreeSet来保存最小的k个数，因为TreeSet增删改查的复杂度均为lgk，因此总的时间复杂度为O(nlgk)
+     *@参数  [arr, k]
+     *@返回值  java.util.TreeSet<java.lang.Integer>
+     *@创建人  vitoz
+     *@创建时间  2018/9/12
+     *@修改人和其它信息
+     */
     private static TreeSet<Integer> getLeastNumbers(int[] arr, int k){
         if (arr == null || arr.length == 0){
             return null;

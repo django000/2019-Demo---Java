@@ -13,8 +13,8 @@ public class Demo41 {
     public static void main(String[] args) {
         MyMedian median = new MyMedian();
         Random random = new Random();
-        for (int i=0;i<10000;i++){
-            median.insert(random.nextInt(1000));
+        for (int i=0;i<100;i++){
+            median.insert(random.nextInt(100000));
         }
         System.out.println(median.getMedian());
     }
@@ -56,7 +56,7 @@ class MyMedian{
 }
 
 class MyComparator<T> implements Comparator<T>{
-    private boolean flag = false;
+    private boolean flag;
     MyComparator(boolean flag){
         this.flag = flag;
     }

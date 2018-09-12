@@ -1,61 +1,65 @@
 package com.vitoz.campus.baicizhan;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * @Auther: vitoz
+ * @Date: 2018/9/2 22:00
+ * @Description: 百词斩2019年校招笔试题2
+ */
 public class Demo2 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int m = sc.nextInt();
-        int n = sc.nextInt();
-        char[][] arr = new char[m][n];
-        for (int i=0;i<m;i++){
-            arr[i] = sc.nextLine().trim().toCharArray();
-        }
-        String str = sc.nextLine().trim();
-        System.out.println(hasPath(arr, str));
+//        Scanner sc = new Scanner(System.in);
+//        int n = sc.nextInt();
+//        int[] arr = new int[n];
+//        for (int i=0;i<n;i++){
+//            arr[i] = sc.nextInt();
+//        }
+//        int k = sc.nextInt();
+//        Arrays.sort(arr);
+//        System.out.println(isSumOfSubArr(arr, k));
+        System.out.println(isSumOfSubArr(new int[]{1,2,4,8}, 16));
     }
 
-    private static boolean hasPath(char[][] arr, String str){
-        if (arr == null || arr.length == 0 || (arr.length == 1 && arr[0].length ==0)){
+    private static boolean isSumOfSubArr(int[] arr, int k){
+        if (k == 0){
+            return true;
+        }else if (arr == null || arr.length == 0){
             return false;
         }
-        int rows = arr.length, cols = arr[0].length;
-        for (int row=0;row<rows;row++){
-            for (int col=0;col<cols;col++){
-                if (hasPathCore(arr, str, 0, row, col)){
-                    return true;
-                }
+        int len = arr.length;
+        if (len == 1){
+            if (arr[0] == k){
+                return true;
+            }else {
+                return false;
             }
         }
-        return false;
-    }
+//        for (int i=0;i<len;i++){
+//            if (arr[i] == k){
+//                return true;
+//            }
+//        }
+//        int low = 0;
+//        int high = len-1;
+//        while (low < high){
+//            long curSum = arr[low]+arr[high];
+//            if (curSum == k){
+//                return true;
+//            }else if (curSum < k){
+//                low++;
+//            }else {
+//                high--;
+//            }
+//        }
+        int[] tmp = new int[len-1];
+        for (int i=0;i<len-1;i++){
+            tmp[i] = arr[i+1];
+        }
+        boolean b1 = isSumOfSubArr(tmp, k);
+        boolean b2 = isSumOfSubArr(tmp, k-arr[0]);
 
-    private static boolean hasPathCore(char[][] board, String word, int index, int x, int y){
-
-        if(index == word.length()-1 && word.charAt(index)==board[x][y]){
-            return true;
-        }
-
-        if(word.charAt(index) != board[x][y]){
-            return false;
-        }
-
-        char tmp = board[x][y];
-        board[x][y] = '.';
-        boolean b1 = false, b2 = false, b3 = false, b4 = false;
-        if(x-1>=0 && board[x-1][y] != '.'){
-            b1 = hasPathCore(board, word, index+1, x-1, y);
-        }
-        if(!b1 && y-1>=0 && board[x][y-1] != '.'){
-            b2 = hasPathCore(board, word, index+1, x, y-1);
-        }
-        if(!b1 && !b2 && x+1<board.length && board[x+1][y] != '.'){
-            b3 = hasPathCore(board, word, index+1, x+1, y);
-        }
-        if(!b1 && !b2 && !b3 && y+1<board[0].length && board[x][y+1] != '.'){
-            b4 = hasPathCore(board, word, index+1, x, y+1);
-        }
-        board[x][y] = tmp;
-        return b1 || b2 || b3 || b4;
+        return b1 || b2;
     }
 }
