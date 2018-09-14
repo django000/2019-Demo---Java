@@ -9,11 +9,9 @@ import java.util.Scanner;
  */
 public class Demo1 {
     public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//        int n = sc.nextInt();
-//        int m = sc.nextInt();
-        int n = 10;
-        int m = -61;
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
         int mm = Math.abs(m);
         int x = 9;
         if (mm > 6*n){
@@ -23,6 +21,4 @@ public class Demo1 {
         }
         System.out.println(x*n+(17-x)*m);
     }
-
-
 }
