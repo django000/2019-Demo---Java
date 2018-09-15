@@ -39,7 +39,6 @@ public class Demo1 {
             time[i] = scanner.nextInt();
         }
         int totalTime = scanner.nextInt();
-
         System.out.print(getMaxScore(totalTime, 0));
     }
 

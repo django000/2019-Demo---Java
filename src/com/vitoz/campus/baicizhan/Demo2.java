@@ -10,18 +10,27 @@ import java.util.Scanner;
  */
 public class Demo2 {
     public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//        int n = sc.nextInt();
-//        int[] arr = new int[n];
-//        for (int i=0;i<n;i++){
-//            arr[i] = sc.nextInt();
-//        }
-//        int k = sc.nextInt();
-//        Arrays.sort(arr);
-//        System.out.println(isSumOfSubArr(arr, k));
-        System.out.println(isSumOfSubArr(new int[]{1,2,4,8}, 16));
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i=0;i<n;i++){
+            arr[i] = sc.nextInt();
+        }
+        int k = sc.nextInt();
+        Arrays.sort(arr);
+        System.out.println(isSumOfSubArr(arr, k));
+//        System.out.println(isSumOfSubArr(new int[]{1,2,4,8}, 15));
+//        System.out.println(isSumOfSubArr(new int[]{1,2,4,8}, 6, 0));
     }
 
+    /**
+     *@描述  给定数组，判断其中任意多个元素之和是否等于给定k
+     *@参数  [arr, k]
+     *@返回值  boolean
+     *@创建人  vitoz
+     *@创建时间  2018/9/15
+     *@修改人和其它信息
+     */
     private static boolean isSumOfSubArr(int[] arr, int k){
         if (k == 0){
             return true;
@@ -36,30 +45,45 @@ public class Demo2 {
                 return false;
             }
         }
-//        for (int i=0;i<len;i++){
-//            if (arr[i] == k){
-//                return true;
-//            }
-//        }
-//        int low = 0;
-//        int high = len-1;
-//        while (low < high){
-//            long curSum = arr[low]+arr[high];
-//            if (curSum == k){
-//                return true;
-//            }else if (curSum < k){
-//                low++;
-//            }else {
-//                high--;
-//            }
-//        }
         int[] tmp = new int[len-1];
         for (int i=0;i<len-1;i++){
             tmp[i] = arr[i+1];
         }
-        boolean b1 = isSumOfSubArr(tmp, k);
-        boolean b2 = isSumOfSubArr(tmp, k-arr[0]);
+        return isSumOfSubArr(tmp, k) || isSumOfSubArr(tmp, k-arr[0]);
+    }
 
-        return b1 || b2;
+    /**
+     *@描述  给定数组，判断其中任意三个元素之和是否等于给定k
+     *@参数  [arr, k, ind]
+     *@返回值  boolean
+     *@创建人  vitoz
+     *@创建时间  2018/9/15
+     *@修改人和其它信息
+     */
+    private static boolean isSumOfSubArr(int[] arr, int k, int ind){
+        if (ind == 3){
+            if (k == 0){
+                for (int i=0;i<arr.length;i++){
+                    System.out.println();
+                }
+            }
+            return k==0;
+        }
+        if (k == 0 || arr == null || arr.length ==0){
+            return false;
+        }
+        int len = arr.length;
+        if (len == 1){
+            if (arr[0] == k && ind == 2){
+                return true;
+            }else {
+                return false;
+            }
+        }
+        int[] tmp = new int[len-1];
+        for (int i=0;i<len-1;i++){
+            tmp[i] = arr[i+1];
+        }
+        return isSumOfSubArr(tmp, k, ind) || isSumOfSubArr(tmp, k-arr[0], ind+1);
     }
 }
