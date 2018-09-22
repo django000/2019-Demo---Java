@@ -12,6 +12,7 @@ public class SortUtil {
 //        insertSort(arr);
 //        quickSort(arr);
 //        mergeSort(arr);
+        heapSort(arr);
         printArr(arr);
     }
 
@@ -170,6 +171,71 @@ public class SortUtil {
             swapItem(i, pos, arr);
         }
     }
+    /**
+     *@描述  初始化大根堆
+     *@参数  [arr]
+     *@返回值  void
+     *@创建人  vitoz
+     *@创建时间  2018/9/23
+     *@修改人和其它信息
+     */
+    private static void buildMaxHeap(int[] arr){
+        if (arr == null || arr.length == 0){
+            return;
+        }
+        int len = arr.length;
+        for (int i=len/2-1;i>=0;i--){
+            adjustMaxHeap(arr, i, len);
+        }
+    }
+
+    /**
+     *@描述  给定元素索引，调整数组使得其重新满足大根堆性质
+     *@参数  [arr, k, len]
+     *@返回值  void
+     *@创建人  vitoz
+     *@创建时间  2018/9/23
+     *@修改人和其它信息
+     */
+    private static void adjustMaxHeap(int[] arr, int k, int len){
+        int tmp = arr[k];
+        for (int i=2*k+1;i<len-1;i=2*i+1){
+            if (i<len-1 && arr[i]<arr[i+1]){
+                i++;
+            }
+            if (tmp > arr[i]){
+                break;
+            }else {
+                arr[k] = arr[i];
+                k = i;
+            }
+        }
+        arr[k] = tmp;
+    }
+
+    /**
+     *@描述  堆排序主函数
+     *@参数  [arr]
+     *@返回值  void
+     *@创建人  vitoz
+     *@创建时间  2018/9/23
+     *@修改人和其它信息
+     */
+    public static void heapSort(int[] arr){
+        if (arr == null || arr.length == 0){
+            return;
+        }
+        int len = arr.length;
+        buildMaxHeap(arr);
+        int tmp;
+        for (int i=len-1;i>0;i--){
+            tmp = arr[0];
+            arr[0] = arr[i];
+            arr[i] = tmp;
+            adjustMaxHeap(arr, 0, i);
+        }
+    }
+
     public static void printArr(int[] arr){
         int len = arr.length;
         System.out.print("\n[");
