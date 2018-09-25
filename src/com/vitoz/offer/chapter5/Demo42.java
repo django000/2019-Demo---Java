@@ -78,15 +78,10 @@ public class Demo42 {
         }
         int len = arr.length;
         int[] subArr = new int[len];
-        for (int i=0;i<len;i++){
-            if (i == 0){
-                subArr[0] = arr[0];
-            }else {
-                subArr[i] = subArr[i-1]>0?subArr[i-1]+arr[i]:arr[i];
-            }
-        }
+        subArr[0] = arr[0];
         int maxSum = subArr[0];
         for (int i=1;i<len;i++){
+            subArr[i] = subArr[i-1]>0?subArr[i-1]+arr[i]:arr[i];
             if (subArr[i] > maxSum){
                 maxSum = subArr[i];
             }

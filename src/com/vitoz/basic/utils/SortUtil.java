@@ -11,8 +11,9 @@ public class SortUtil {
 //        bubbleSort2(arr);
 //        insertSort(arr);
 //        quickSort(arr);
+        quickSort2(arr);
 //        mergeSort(arr);
-        heapSort(arr);
+//        heapSort(arr);
         printArr(arr);
     }
 
@@ -70,6 +71,42 @@ public class SortUtil {
         while (j<rightArr.length){
             arr[k++] = rightArr[j++];
         }
+    }
+    public static void quickSort2(int[] arr){
+        quickSort2(arr, 0, arr.length-1);
+    }
+    private static void quickSort2(int[] arr, int start, int end){
+        if (start >= end){
+            return;
+        }
+        int index = partition(arr, start, end);
+        if (index > start){
+            quickSort2(arr, start, index-1);
+        }
+        if (index < end){
+            quickSort2(arr, index+1, end);
+        }
+    }
+    public static int partition(int[] arr, int low, int high){
+        int base = arr[low];
+        while (low < high){
+            while (arr[high] >= base && low < high){
+                high--;
+            }
+            if (low < high){
+                arr[low] = arr[high];
+                low++;
+            }
+            while (arr[low] <= base && low < high){
+                low++;
+            }
+            if (low < high){
+                arr[high] = arr[low];
+                high--;
+            }
+        }
+        arr[low] = base;
+        return low;
     }
     public static void quickSort(int[] arr){
         quickSort(arr, 0, arr.length-1);
@@ -242,7 +279,7 @@ public class SortUtil {
         for (int i=0; i< len-1; i++){
             System.out.print(arr[i]+", ");
         }
-        System.out.print(arr[len-1]+"]");
+        System.out.println(arr[len-1]+"]");
     }
     private static void swapItem(int i, int j, int[] arr){
         int temp = arr[i];
