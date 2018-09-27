@@ -2,6 +2,8 @@ package com.vitoz.offer.chapter3;
 
 import com.vitoz.offer.dataobjects.ListNode;
 
+import java.util.List;
+
 /**
  * @Auther: vitoz
  * @Date: 2018/9/1 19:15
@@ -16,8 +18,10 @@ public class Demo24 {
                 list[i-1].next = list[i];
             }
         }
-        ListNode newRoot = getReverseList(list[0]);
-        newRoot.printListNode();
+//        ListNode newRoot = getReverseList(list[0]);
+//        newRoot.printListNode();
+        ListNode newRoot2 = getReverseList2(list[0]);
+        newRoot2.printListNode();
     }
 
     /**
@@ -45,4 +49,20 @@ public class Demo24 {
         pNode.next = pPrev;
         return pNode;
     }
+
+     private static ListNode getReverseList2(ListNode root){
+        if (root == null){
+            return null;
+        }
+        ListNode pPrev = null;
+        ListNode pNode = root;
+        ListNode pNext = null;
+        while (pNode != null){
+            pNext = pNode.next;
+            pNode.next = pPrev;
+            pPrev = pNode;
+            pNode = pNext;
+        }
+        return pPrev;
+     }
 }
