@@ -25,19 +25,18 @@ public class EightQueen {
         if (arr == null || arr.length == 0){
             return;
         }
-        int len = arr.length;
-        if (index == len-1){
+        if (index == arr.length-1){
             if (!checkConflict(arr, index)){
                 count++;
             }
-            return;
-        }
-        for (int i=index;i<len;i++){
-            swap(arr, i, index);
-            if (!checkConflict(arr, index)){
-                permutation(arr, index+1);
+        }else {
+            for (int i=index;i<arr.length;i++){
+                swap(arr, i, index);
+                if (!checkConflict(arr, index)){
+                    permutation(arr, index+1);
+                }
+                swap(arr, i, index);
             }
-            swap(arr, i, index);
         }
     }
 
