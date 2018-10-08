@@ -11,5 +11,6 @@ public class Test {
 //        System.out.println(reader.readLine()+"123");
 //        Scanner sc = new Scanner(System.in);
 //        System.out.println(sc.nextLine()+"123");
+        System.out.println((char)49);
     }
 }
