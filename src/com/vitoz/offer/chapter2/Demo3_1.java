@@ -1,7 +1,5 @@
 package com.vitoz.offer.chapter2;
 
-import org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName;
-
 import java.util.HashSet;
 
 public class Demo3_1 {
@@ -43,7 +41,7 @@ public class Demo3_1 {
         int temp;
         for (int i=0;i<len;i++) {
             while (arr[i] != i){
-                if (arr[arr[i]] == arr[i]) {
+                if (arr[i] == arr[arr[i]] || arr[i]<i) {
                     return arr[i];
                 }
                 temp = arr[i];

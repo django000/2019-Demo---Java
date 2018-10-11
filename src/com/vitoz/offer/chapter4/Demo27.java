@@ -21,10 +21,10 @@ public class Demo27 {
         nodes[2].leftNode = nodes[5];
         nodes[2].rightNode = nodes[6];
 
-        nodes[0].printInorder();
+        BinaryTreeNode.printInorder(nodes[0]);
         System.out.println();
         mirrorRecursion(nodes[0]);
-        nodes[0].printInorder();
+        BinaryTreeNode.printInorder(nodes[0]);
     }
 
     private static void mirrorRecursion(BinaryTreeNode root){

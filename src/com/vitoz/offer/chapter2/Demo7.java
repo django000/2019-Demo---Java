@@ -10,7 +10,7 @@ public class Demo7 {
         int[] preorder = { 1, 2, 4, 7, 3, 5, 6, 8 };
         int[] inorder = { 4, 7, 2, 1, 5, 3, 8, 6 };
         BinaryTreeNode root = construct(preorder, inorder);
-        root.printPostorder();
+        BinaryTreeNode.printPostorder(root);
     }
 
     public static BinaryTreeNode construct(int[] preorder, int[] inorder){

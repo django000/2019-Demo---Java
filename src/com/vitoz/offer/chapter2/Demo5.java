@@ -3,18 +3,19 @@ package com.vitoz.offer.chapter2;
 public class Demo5 {
     public static void main(String[] args) {
         String str = "we are happy.";
-        int lenStr = str.length();
-        int lenArr = lenStr*3;
-        char[] string = new char[lenArr];
-        for (int i=0;i<lenStr;i++){
-            string[i] = str.charAt(i);
+        char[] input = str.toCharArray();
+        int len = input.length;
+        char[] output = new char[len*3];
+        for (int i=0;i<len;i++){
+            output[i] = input[i];
         }
-        replaceBlank(string, lenStr);
-        for (int i=0;i<lenArr;i++){
-            if (string[i] != ' '){
-                System.out.print(string[i]);
+        replaceBlank(output, len);
+        for (int i=0;i<output.length;i++){
+            if (output[i] != ' '){
+                System.out.print(output[i]);
             }
         }
+        System.out.println();
     }
 
     public static void replaceBlank(char[] string, int len){
@@ -28,9 +29,6 @@ public class Demo5 {
             }
         }
         int newLen = len+count*2;
-        if (newLen > string.length){
-            return ;
-        }
         int index = len - 1;
         int indexNew = newLen - 1;
         while (index >=0 && index<indexNew){

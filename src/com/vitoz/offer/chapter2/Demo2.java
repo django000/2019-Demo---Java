@@ -34,11 +34,11 @@ class SingletonB{
 }
 
 class SingletonC{
+    private SingletonC(){};
+    private static SingletonC instance = null;
     static {
         instance = new SingletonC();
     }
-    private SingletonC(){};
-    private static SingletonC instance = null;
     public static SingletonC getInstance(){
         return instance;
     }

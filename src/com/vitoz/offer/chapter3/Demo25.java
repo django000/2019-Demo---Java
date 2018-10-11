@@ -19,8 +19,11 @@ public class Demo25 {
                 list2[i-1].next = list2[i];
             }
         }
-//        mergeOrderList(list1[0], list2[0]).printListNode();
-        mergeOrderListRecursion(list1[0], list2[0]).printListNode();
+        ListNode node = mergeOrderListRecursion(list1[0], list2[0]);
+//        node = mergeOrderList(list1[0], list2[0]);
+        ListNode.printListNode(node);
+//
+
     }
 
     /**

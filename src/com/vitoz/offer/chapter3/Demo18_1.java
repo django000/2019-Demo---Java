@@ -14,9 +14,9 @@ public class Demo18_1 {
                 list[i-1].next = list[i];
             }
         }
-        list[0].printListNode();
+        ListNode.printListNode(list[0]);
         deleteListNode(list[0], list[2]);
-        list[0].printListNode();
+        ListNode.printListNode(list[0]);
     }
 
     /**

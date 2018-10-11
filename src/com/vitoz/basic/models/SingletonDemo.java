@@ -26,7 +26,7 @@ class SingletonA{
 class SingletonB{
     private SingletonB(){}
     private static volatile SingletonB singletonB = null;
-    static SingletonB getTon(){
+    public static SingletonB getTon(){
         if (singletonB == null){
             synchronized (SingletonB.class){
                 if (singletonB == null){

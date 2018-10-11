@@ -11,7 +11,7 @@ public class Demo22 {
                 list[i-1].next = list[i];
             }
         }
-        list[0].printListNode();
+        ListNode.printListNode(list[0]);
         System.out.println(findKthToTail(list[0], 3));
     }
 

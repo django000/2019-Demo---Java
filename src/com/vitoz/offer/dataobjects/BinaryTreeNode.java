@@ -27,32 +27,26 @@ public class BinaryTreeNode{
         this.parentNode = parentNode;
     }
 
-    public void printPreorder(){
-        System.out.print(value+" ");
-        if (leftNode != null){
-            leftNode.printPreorder();
-        }
-        if (rightNode != null){
-            rightNode.printPreorder();
+    public static void printPreorder(BinaryTreeNode node){
+        if (node != null){
+            System.out.print(node.value+" ");
+            printPreorder(node.leftNode);
+            printPreorder(node.rightNode);
         }
     }
-    public void printInorder(){
-        if (leftNode != null){
-            leftNode.printInorder();
-        }
-        System.out.print(value+" ");
-        if (rightNode != null){
-            rightNode.printInorder();
+    public static void printInorder(BinaryTreeNode node){
+        if (node != null){
+            printInorder(node.leftNode);
+            System.out.print(node.value+" ");
+            printInorder(node.rightNode);
         }
     }
-    public void printPostorder(){
-        if (leftNode != null){
-            leftNode.printPostorder();
+    public static void printPostorder(BinaryTreeNode node){
+        if (node != null){
+            printPostorder(node.leftNode);
+            printPostorder(node.rightNode);
+            System.out.print(node.value+" ");
         }
-        if (rightNode != null){
-            rightNode.printPostorder();
-        }
-        System.out.println(value+" ");
     }
 
     // 从上到下打印二叉树，各层分开

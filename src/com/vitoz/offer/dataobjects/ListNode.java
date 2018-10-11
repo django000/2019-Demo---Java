@@ -21,11 +21,10 @@ public class ListNode{
         return builder.toString();
     }
 
-    public void printListNode(){
-        System.out.print(value);
-        if (next != null){
-            System.out.print(" -> ");
-            next.printListNode();
+    public static void printListNode(ListNode node){
+        if (node != null){
+            System.out.print(node.value+" -> ");
+            printListNode(node.next);
         }else {
             System.out.println();
         }

@@ -19,9 +19,9 @@ public class Demo18_2 {
         for (int i=0;i<7;i++){
             list[i].next = list[i+1];
         }
-        list[0].printListNode();
+        ListNode.printListNode(list[0]);
         deleteDuplication(list[0]);
-        list[0].printListNode();
+        ListNode.printListNode(list[0]);
     }
 
     private static void deleteDuplication(ListNode root){

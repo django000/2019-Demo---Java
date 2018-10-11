@@ -20,7 +20,7 @@ public class Demo36 {
         nodes[1].rightNode = nodes[4];
         nodes[2].leftNode = nodes[5];
         nodes[2].rightNode = nodes[6];
-        nodes[0].printPreorder();
+        BinaryTreeNode.printPreorder(nodes[0]);
         System.out.println(convert(nodes[0]));
     }
 

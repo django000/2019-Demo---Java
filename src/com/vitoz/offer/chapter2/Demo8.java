@@ -41,7 +41,7 @@ public class Demo8 {
         nodes[7].parentNode = nodes[4];
         nodes[8].parentNode = nodes[4];
 
-        getNextNode(nodes[8]).printInorder();
+        BinaryTreeNode.printInorder(getNextNode(nodes[8]));
     }
 
     private static BinaryTreeNode getNextNode(BinaryTreeNode pNode){
@@ -55,7 +55,6 @@ public class Demo8 {
                 pNext = pNext.leftNode;
             }
         }else{
-            assert pNode.parentNode != null;
             BinaryTreeNode pParent = pNode.parentNode;
             while (pParent != null && pParent.rightNode == pNode){
                 pNode = pParent;
