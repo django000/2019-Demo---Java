@@ -60,6 +60,7 @@ public class Demo34 {
         if (root.rightNode != null){
             findTreePath(root.rightNode, list, current, expected);
         }
+        current -= root.value;
         list.pollLast();
     }
 }

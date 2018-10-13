@@ -21,6 +21,7 @@ public class Demo32 {
         nodes[2].leftNode = nodes[5];
         nodes[2].rightNode = nodes[6];
 
+        BinaryTreeNode.printInorder2(nodes[0]);
         // 分层打印该二叉树
         BinaryTreeNode.printVerorder(nodes[0]);
         // 分层且之字形打印该二叉树

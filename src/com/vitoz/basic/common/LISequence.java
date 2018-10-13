@@ -25,7 +25,6 @@ public class LISequence {
         }
         int len = arr.length;
         int[] dp = new int[len];
-        int res = 0;
         dp[0] = 1;
         for (int i=1;i<len;i++){
             for (int j=0;j<i;j++){
@@ -35,8 +34,7 @@ public class LISequence {
                     dp[i] = dp[j];
                 }
             }
-            res = Math.max(res, dp[i]);
         }
-        return res;
+        return dp[len-1];
     }
 }

@@ -41,6 +41,26 @@ public class BinaryTreeNode{
             printInorder(node.rightNode);
         }
     }
+    public static void printInorder2(BinaryTreeNode root){
+        if (root == null){
+            return;
+        }
+        StringBuilder sb = new StringBuilder();
+        Stack<BinaryTreeNode> stack = new Stack<>();
+        BinaryTreeNode node = root;
+        while (node != null || !stack.isEmpty()){
+            while (node != null){
+                stack.push(node);
+                node = node.leftNode;
+            }
+            if (!stack.isEmpty()){
+                node = stack.pop();
+                sb.append(node.value+" ");
+                node = node.rightNode;
+            }
+        }
+        System.out.println(sb.toString().trim());
+    }
     public static void printPostorder(BinaryTreeNode node){
         if (node != null){
             printPostorder(node.leftNode);

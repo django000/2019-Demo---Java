@@ -13,7 +13,7 @@ public class SortUtil {
 //        quickSort(arr);
         quickSort2(arr);
 //        mergeSort(arr);
-//        heapSort(arr);
+        heapSort(arr);
         printArr(arr);
     }
 
