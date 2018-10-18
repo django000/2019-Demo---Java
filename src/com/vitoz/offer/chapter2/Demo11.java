@@ -28,7 +28,7 @@ public class Demo11 {
             }
             result = ((end - start)>>>1) + start;
             if (arr[start] == arr[end] && arr[result] == arr[end]){
-                return getMinInorder(arr);
+                return getMinInorder(arr, start, end);
             }
             if (arr[result] >= arr[start]){
                 start = result;
@@ -40,16 +40,15 @@ public class Demo11 {
     }
 
     /**
-     *@描述 由于数组中元素相同的太多，所以只能用O(n)方式遍历判断
-     *@参数  [输入旋转数组]
-     *@返回值  旋转数组的最小值
-     *@创建人  vitoz
-     *@创建时间  2018/8/30
-     *@修改人和其它信息
-     */
-    public static int getMinInorder(int[] arr){
-        int result = arr[0], len = arr.length;
-        for (int i=1; i<len; i++){
+     * @Author zhengwentao
+     * @Description 由于数组中元素相同的太多，所以只能用O(n)方式遍历判断
+     * @Date 2018/10/12 14:48
+     * @Param [arr, start, end]
+     * @return int
+     **/
+    public static int getMinInorder(int[] arr, int start, int end){
+        int result = arr[start];
+        for (int i=start+1; i<=end; i++){
             if (arr[i] < result){
                 result = arr[i];
             }
