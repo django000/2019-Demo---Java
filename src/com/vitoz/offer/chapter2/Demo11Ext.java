@@ -25,7 +25,7 @@ public class Demo11Ext {
         }else {
             if (arr[low]<key){
                 int maxInd = getArrIndex(arr, true);
-                res = binarySearch(arr, low, maxInd, key);
+                res = binarySearch(arr, low+1, maxInd, key);
             }else if (arr[low]>key){
                 int minInd = getArrIndex(arr, false);
                 res = binarySearch(arr, minInd, high, key);
