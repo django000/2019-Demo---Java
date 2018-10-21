@@ -36,16 +36,18 @@ public class Demo68 {
         }
         LinkedList<BinaryTreeNode> path1 = new LinkedList<>();
         LinkedList<BinaryTreeNode> path2 = new LinkedList<>();
-        getNodePath(root, node1, path1);
-        getNodePath(root, node2, path2);
+        boolean flag1 = getNodePath(root, node1, path1);
+        boolean flag2 = getNodePath(root, node2, path2);
         BinaryTreeNode node = null;
-        Iterator<BinaryTreeNode> iter1 = path1.iterator();
-        Iterator<BinaryTreeNode> iter2 = path2.iterator();
-        while (iter1.hasNext() && iter2.hasNext()){
-            BinaryTreeNode tmp1 = iter1.next();
-            BinaryTreeNode tmp2 = iter2.next();
-            if (tmp1 == tmp2){
-                node = tmp1;
+        if (flag1 && flag2){
+            Iterator<BinaryTreeNode> iter1 = path1.iterator();
+            Iterator<BinaryTreeNode> iter2 = path2.iterator();
+            while (iter1.hasNext() && iter2.hasNext()){
+                BinaryTreeNode tmp1 = iter1.next();
+                BinaryTreeNode tmp2 = iter2.next();
+                if (tmp1 == tmp2){
+                    node = tmp1;
+                }
             }
         }
         return node;
