@@ -34,6 +34,26 @@ public class BinaryTreeNode{
             printPreorder(node.rightNode);
         }
     }
+    public static void printPreorder2(BinaryTreeNode root){
+        if (root == null){
+            return;
+        }
+        Stack<BinaryTreeNode> stack = new Stack<>();
+        StringBuilder sb = new StringBuilder();
+        BinaryTreeNode node = root;
+        while (node != null || !stack.isEmpty()){
+            while (node != null){
+                stack.push(node);
+                sb.append(node.value + " ");
+                node = node.leftNode;
+            }
+            if (!stack.isEmpty()){
+                node = stack.pop();
+                node = node.rightNode;
+            }
+        }
+        System.out.println(sb.toString().trim());
+    }
     public static void printInorder(BinaryTreeNode node){
         if (node != null){
             printInorder(node.leftNode);
@@ -45,8 +65,8 @@ public class BinaryTreeNode{
         if (root == null){
             return;
         }
-        StringBuilder sb = new StringBuilder();
         Stack<BinaryTreeNode> stack = new Stack<>();
+        StringBuilder sb = new StringBuilder();
         BinaryTreeNode node = root;
         while (node != null || !stack.isEmpty()){
             while (node != null){
